@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Project Dory Report</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="widdh=device-widdh, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/stylesReport.css') }}">
+
+    
+
+</head>
+
+<body>
+    <div class="header">
+        <h1>Project Dory</h1>
+        <h3>COMP 3106</h3>
+        <h3>Team Members</h3>
+    </div>
+
+    <nav class="nav-bar">
+        <dl>
+            <dt><a href="#section1" class="title">1. Introduction</a></dt>   
+            <dd><a href="#section1-1" class="subtitle">1.1 Background & Motivation</a></dd>
+            <dd><a href="#section1-2" class="subtitle">1.2 Prior Work</a></dd>
+            <br>
+            <dt><a href="#section2">2. Methods</a></dt>
+            <dd><a href="#section2-1" class="subtitle">2.1 Methods from AI</a></dd>
+            <dd><a href="#section2-2" class="subtitle">2.2 Dataset</a></dd>
+            <dd><a href="#section2-3" class="subtitle">2.3 Validation Strategy</a></dd>
+            <br>
+            <dt><a href="#section3">3. Results</a></dt>
+            <dd><a href="#section3-1" class="subtitle">3.1 Qualitative results</a></dd>
+            <dd><a href="#section3-2" class="subtitle">3.2 Quantitative results</a></dd>
+            <br>
+            <dt><a href="#section4">4. Results</a></dt>
+            <dd><a href="#section4-1" class="subtitle">4.1 Limitations</a></dd>
+            <dd><a href="#section4-2" class="subtitle">4.2 Implications</a></dd>
+            <br>
+            <dt><a href="#section5" class="title">5. Statement of contributions</a></dt>
+            <dt><a href="#section6" class="title">6. References</a></dt>
+        </dl>
+
+        
+        
+    </nav>
+
+    <section id="section1" class="title">
+        <h1>1 Introduction</h1>
+
+        <section id="section1-1" class="subtitle">
+            <h3>1.1 Background & Motivation</h3>
+            <p>
+                For decades, researchers have been collecting sound data from the Earth's oceans without an efficient way to classify it. 
+                NOAA (National Oceanic and Atmospheric Administration) and the U.S NAVY have collected over 300 terabyts of oceanic sound data over a 4 year period through the SanctSound project 
+                which aims to allow people to easily explore and access as much of this data as possible. 
+                Classifying this data is already happening thanks to the NOAA Big Data Program. 
+                Project Dory hopes to build on this effort by providing a platform that is able to listen to and identify sounds created by marine mammals. 
+                Inspired by Dr. Roger Paynes multi-platinum album Songs of The Humpback Whale, we hope this project will be used in the effort to preserve and study marine life.
+            </p>
+            <p>
+                The objective of Project Dory is to develop a platform to aid researchers in classifying marine mammals from sound data. 
+                We aim to develop an AI model that is able to classify the presence of one or multiple marine mammals inside a sound clip. 
+                The platform will be able to take an audio file (.wav) and output what animals are present with a time stamp corresponding to the original audio file.
+            </p>
+        </section>
+
+        <section id="section1-2" class="subtitle">
+            <h3>1.2 Prior Work</h3>
+            <p>Present the results obtained from the project.</p>
+        </section>
+    </section>
+
+    <section id="section2" class="title">
+        <h1>2 Methods</h1>
+
+        <section id="section2-1" class="subtitle">
+            <h3>2.1 Methods from artificial intelligence used</h3>
+            <p>
+                Project Dory will utilize deep learning techniques, such as convolutional neural networks (CNNs), 
+                and classify data using The Mel-frequency cepstral coefficients (MFCCs) to classify the features of the audio data based on time and frequency. 
+                The AI model will be trained using a supervised learning approach, where it will be trained on labeled marine mammal sound data
+            </p>
+        </section>
+
+        <section id="section2-2" class="subtitle">
+            <h3>2.2 Dataset</h3>
+            <p>
+                Project Dory plans on using the Watkins Marine Mammal Sound Database. 
+                This database contains the labeled recordings of over 60 different marine mammals collected over 7 decades.
+            </p>
+        </section>
+
+        <section id="section2-3" class="subtitle">
+            <h3>2.3 Validation strategy or experiments</h3>
+            <p>
+                Project Dory will validate its findings through the introduction of new data not seen by the model. 
+                We will perform loss validation calculations to see how well our model is able to predict the marine mammals present in the audio clip. 
+                Once our model archives reasonable performance levels, 
+                we will continue with the validation of labeled data by comparing our ground truth labels with the outputs from our model.
+            </p>
+        </section>
+    </section>
+
+    <section id="section3" class="title">
+        <h1>3 Results</h1>
+
+        <section id="section3-1" class="subtitle">
+            <h3>3.1 Qualitative results</h3>
+            <p>Conclude the project report with final remarks.</p>
+        </section>
+
+        <section id="section3-2" class="subtitle">
+            <h3>3.2 Quantitative results</h3>
+            <p>Conclude the project report with final remarks.</p>
+        </section>
+    </section>
+
+    <section id="section4" class="title">
+        <h1>4 Discussion</h1>
+
+        <section id="section4-1" class="subtitle">
+            <h3>4.1 Limitations of the work and directions for future work</h3>
+            <p>Conclude the project report with final remarks.</p>
+        </section>
+
+        <section id="section4-2" class="subtitle">
+            <h3>4.2 Implications of the work</h3>
+            <p>Conclude the project report with final remarks.</p>
+        </section>
+    </section>
+
+    <section id="section5" class="title">
+        <h1>5 Statement of contributions</h1>
+        <p>Conclude the project report with final remarks.</p>
+    </section>
+
+    <section id="section6" class="title">
+        <h1>6 References</h1>
+        <p>
+
+        </p>
+    </section>
+
+</body>
+
+</html>
