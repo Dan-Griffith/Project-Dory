@@ -14,7 +14,7 @@ class NeuralNetwork(nn.Module):
         self.conv2 = nn.Conv2d(32, 64, 3, padding=1)
         self.pool = nn.MaxPool2d(2, stride=2)
         self.fc1 = nn.Linear(64 * 12 * 13, 256) # Adjust the input size based on your input dimensions
-        self.fc2 = nn.Linear(256, 4)
+        self.fc2 = nn.Linear(256, 7)
         self.dropout = nn.Dropout(p=0.25)
 
     def forward(self, x):
@@ -77,7 +77,7 @@ def test(model, dataloader, device):
 
             output = model(data)
             pred = output.argmax(dim=1, keepdim=True)
-            print(pred)
+          
             total_loss += nll_loss(output, target, reduction='sum').item()
             num_correct += pred.eq(target.view_as(pred)).sum().item()
 
@@ -91,7 +91,7 @@ def predict_label(filename, model, device):
     X = t.convert_to_mfcc(filename, 130)
     
     # Convert to Tensor and reshape if necessary
-    X_tensor = Tensor(X).view(-1, 1, 50, 52)  # Adjust dimensions as needed
+    X_tensor = Tensor(X).reshape(-1, 1, 50, 52)  # Adjust dimensions as needed
     
     # Create a DataLoader for the single test point
    
@@ -117,20 +117,34 @@ if __name__ == '__main__':
     epoch = 1
     while True:
         train(model, optimizer, train_dataloader, device)
-        
+        test_loss, test_accuracy = test(model, test_dataloader, device)
+
+        print(f'Epoch {epoch}:')
+        print(f'    Loss: {test_loss}')
+        print(f'    Accuracy: {test_accuracy*100}%')
+        print()
 
         current_time = time()
-        if epoch > 10:
+        if epoch > 8:
             break
 
         epoch += 1
-
-    
     print(f'Runtime: {current_time - start_time}')
-    filename = 'Data/data/SpermWhale/9551900P.wav'
-    t.create_test_point(filename)
-    predicted_label = predict_label(filename, model, device)
-    print(f'Predicted Label: {predicted_label}')
+    while True: 
+        data = input("Please enter a file path")
+        if data =='q':
+            break
+        
+        filename = data
+        t.create_test_point(filename)
+        predicted_label = predict_label(filename, model, device)
+        if predicted_label == 1: 
+            print('Killer Whale')
+        if predicted_label == 2:
+            print('SpermWhale')
+        if predicted_label == 3:
+            print('Bottle Nose Dolphin')
+        print(f'Predicted Label: {predicted_label}')
 
 
 
@@ -141,9 +155,3 @@ if __name__ == '__main__':
 
 
 
-#test_loss, test_accuracy = test(model, test_dataloader, device)
-
-# print(f'Epoch {epoch}:')
-# print(f'    Loss: {test_loss}')
-# print(f'    Accuracy: {test_accuracy*100}%')
-# print()

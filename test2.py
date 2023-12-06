@@ -55,7 +55,7 @@ def main(filePath, label, filename):
     for index in mfccs:
         vector = mfccs[index].flatten()
         flattened_v.append(vector)
-        if counter > 100:
+        if counter > 500:
             break
         counter += 1
     X = np.vstack(flattened_v)
@@ -77,16 +77,16 @@ def create_test_point(filename):
     mfcc = convert_to_mfcc(filename, max_length)
     X = mfcc.flatten()
     X = X.reshape(1, -1)
-    print(X.shape)
-    with open('test.csv', 'a', newline='') as csvfile:
+  
+    with open('test.csv', 'w', newline='') as csvfile:
         csvwriter = csv.writer(csvfile)
  
         csvwriter.writerow(X)
 
     
-
-
 # main('Data/data/KillerWhale', 1, 'output.csv')
 # main('Data/data/SpermWhale', 2,'output.csv')
 # main('Data/data/BottlenoseDolphin', 3,'output.csv')
-    
+# main('Data/data/AtlanticSpottedDolphin', 4,'output.csv')    
+# main('Data/data/SpinnerDolphin', 5,'output.csv')  
+# main('Data/data/BowheadWhale', 6,'output.csv') 
