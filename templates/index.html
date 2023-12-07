@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Project Dory</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/styles.css') }}">
+
+</head>
+
+
+
+<body>
+
+    <div class="header">
+      <h2>Project Dory</h2>
+      <a href="https://github.com/Dan-Griffith/Project-Dory">
+        <img src="{{url_for('static', filename='github.png')}}" width=3%/>
+      </a>
+    </div>
+    
+    <div class="row">
+      <div class="leftcolumn">
+        <div class="card">
+          <h2>INTRODUCTION</h2>
+          <h4>Background & Objectives</h4>
+          <p>
+            For decades, researchers have been collecting sound data from the Earth's oceans without an efficient way to classify it. 
+            NOAA (National Oceanic and Atmospheric Administration) and the U.S NAVY have collected over 300 terabyts of oceanic sound data 
+            over a 4 year period through the SanctSound project which aims to allow people to easily explore and access as much of this data as possible. 
+            Classifying this data is already happening thanks to the NOAA Big Data Program. 
+            Project Dory hopes to build on this effort by providing a platform that is able to listen to and identify sounds created by marine mammals. 
+            Inspired by Dr. Roger Paynes multi-platinum album Songs of The Humpback Whale, we hope this project will be used in the effort to preserve and study marine life.
+          </p>
+          <p>
+            The objective of Project Dory is to develop a platform to aid researchers in classifying marine mammals from sound data. 
+            We aim to develop an AI model that is able to classify the presence of one or multiple marine mammals inside a sound clip. 
+            The platform will be able to take an audio file (.wav) and output what animals are present with a time stamp corresponding to the original audio file.
+          </p>
+        </div>
+
+        <div class="card">
+          <h2>Marine Mammals</h2>
+          <h4>Examples & Scenarios</h4>
+          <div class="imgRow">
+            <div class="imgColumn">
+              <img src="https://whoicf2.whoi.edu/science/B/whalesounds/images/Physeter-macrocephalus.png" width=100%><br>
+              <p>Sperm Whale: Physeter-macrocephalus</p>
+            </div>
+            <div class="imgColumn">
+              <img src="https://whoicf2.whoi.edu/science/B/whalesounds/images/Orcinus-orca.png" width=100%><br>
+              <p>Killer Whale: Orcinus-orca</p>
+            </div>
+            <div class="imgColumn">
+              <img src="https://whoicf2.whoi.edu/science/B/whalesounds/images/Tursiops-truncatus.png" width=100%><br>
+              <p>Bottlenose Dolphin: Tursiops-truncatus</p>
+            </div>
+          </div>
+
+          <div class="imgRow">
+            <div class="imgColumn">
+              <img src="https://whoicf2.whoi.edu/science/B/whalesounds/images/Stenella-longirostris.png" width=100%><br>
+              <p>Spinner Dolphin: Stenella-longirostris</p>
+            </div>
+            <div class="imgColumn">
+              <img src="https://whoicf2.whoi.edu/science/B/whalesounds/images/Balaena-mysticetus.png" width=100%><br>
+              <p>Bowhead Whale: Balaena-mysticetus</p>
+            </div>
+            <div class="imgColumn">
+              <img src="https://whoicf2.whoi.edu/science/B/whalesounds/images/Stenella-frontalis.png" width=100%><br>
+              <p>Atlantic Spotted Dolphin: Stenella-frontalis</p>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="card">
+          <h2>Walkthrough</h2>
+          <h4>Choose a .wav file</h4>
+          <form action="/run" method="POST" enctype="multipart/form-data">
+            <input type="file" name="file">
+            <br>
+            <br>
+            <input type="submit">
+            </form>
+        </div>
+
+        <div class="card">
+          <h2>Code & Description</h2>
+          <h4>CNN, MFCC, Algorithm/Optimizer</h4>
+          <table>
+            <tr>
+              <td>
+                <img src="{{url_for('static', filename='CNN.png')}}" width="500">
+              </td>
+              <td>
+                <img src="{{url_for('static', filename='MFCC.png')}}" width="500">
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <img src="{{url_for('static', filename='TRAIN.png')}}" width="500">
+              </td>
+              <td>
+                <img src="{{url_for('static', filename='MAIN.png')}}" width="500">
+              </td>
+            </tr>
+            
+          </table>
+          <p>Some text..</p>
+        </div>
+      </div>
+
+      <div class="rightcolumn">
+
+        <div class="card">
+          <h2>Data Set</h2>
+          <p>Watkins Marine Mammal Sound Database</p> 
+          <a href="https://whoicf2.whoi.edu/science/B/whalesounds/index.cfm">
+            <img src="https://store.whalingmuseum.org/cdn/shop/products/NBWM_VW_Book_Cover_10-8_500x500_88f86a0f-412c-4793-be47-157663bdf4b1.jpg?v=1572967712" width=100%/>
+          </a>
+          <p>Contains the labeled recordings of over 60 different marine mammals collected over 7 decades.</p>
+        </div>
+
+        <div class="card">
+          <h3>Validation & Test Set</h3>
+            <table>
+              <tr>
+                <th>
+                  Links
+                </th>
+                <th>
+                  Title
+                </th>
+              </tr>
+              <tr>
+                <td>
+                  <a href="https://www.youtube.com/watch?v=HS9OIBifQVw">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/e/ef/Youtube_logo.png" width=30%>
+                  </a>
+                </td>
+                <td>
+                  <p>Sperm<br>Whale</p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <a href="https://www.youtube.com/watch?v=HS9OIBifQVw">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/e/ef/Youtube_logo.png" width=30%>
+                  </a>
+                </td>
+                <td><p>Killer<br>Whale</p></td>
+              </tr>
+              <tr>
+                <td>
+                  <a href="https://www.youtube.com/watch?v=HS9OIBifQVw">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/e/ef/Youtube_logo.png" width=30%>
+                  </a>
+                </td>
+                <td><p>Bottlenose<br>Dolphin</p></td>
+              </tr>
+              <tr>
+                <td>
+                  <a href="https://www.youtube.com/watch?v=HS9OIBifQVw">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/e/ef/Youtube_logo.png" width=30%>
+                  </a>
+                </td>
+                <td><p>Spinner<br>Dolphin</p></td>
+              </tr>
+              <tr>
+                <td>
+                  <a href="https://www.youtube.com/watch?v=HS9OIBifQVw">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/e/ef/Youtube_logo.png" width=30%>
+                  </a>
+                </td>
+                <td><p>Bowhead<br>Whale</p></td>
+              </tr>
+              <tr>
+                <td>
+                  <a href="https://www.youtube.com/watch?v=HS9OIBifQVw">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/e/ef/Youtube_logo.png" width=30%>
+                  </a>
+                </td>
+                <td><p>Atlantic<br>Spotted<br>Dolphin</p></td>
+              </tr>
+            </table>
+        </div>
+
+        <div class="card">
+          <h2>Tech Stack</h2>
+          <img src="https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54">
+          <img src="https://img.shields.io/badge/TensorFlow-%23FF6F00.svg?style=for-the-badge&logo=TensorFlow&logoColor=white">
+          <img src="https://img.shields.io/badge/SciPy-%230C55A5.svg?style=for-the-badge&logo=scipy&logoColor=%white">
+          <img src="https://img.shields.io/badge/PyTorch-%23EE4C2C.svg?style=for-the-badge&logo=PyTorch&logoColor=white">
+          <img src="https://img.shields.io/badge/Keras-%23D00000.svg?style=for-the-badge&logo=Keras&logoColor=white">
+          <img src="https://img.shields.io/badge/Matplotlib-%23ffffff.svg?style=for-the-badge&logo=Matplotlib&logoColor=black">
+          <img src="https://img.shields.io/badge/numpy-%23013243.svg?style=for-the-badge&logo=numpy&logoColor=white">
+          <img src="https://img.shields.io/badge/flask-%23000.svg?style=for-the-badge&logo=flask&logoColor=white">
+        </div>
+
+        <div class="card">
+          <h3>Report & Documentation</h3>
+          <a href="/report.html">
+            <img src="https://www.freeiconspng.com/uploads/call-report-icon-3.png" width=100%/>
+          </a>
+        </div>
+      </div>
+    </div>
+    
+    <div class="footer">
+      <h2>Quick Links</h2>
+      <a href="https://github.com/Dan-Griffith/Project-Dory">Github</a><br>
+      <a href="https://whoicf2.whoi.edu/science/B/whalesounds/index.cfm">DataSet & Database</a><br>
+      <a href="/report.html">Report & Documentation</a><br>
+      <a href="https://www.mdpi.com/1424-8220/22/19/7443">References & Prior Work</a><br>
+      <div><p>Copyright © 2023 Project Dory</p></div>
+    </div>
+
+    
+</body>
+
+</html>

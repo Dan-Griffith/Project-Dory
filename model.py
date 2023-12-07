@@ -131,7 +131,7 @@ if __name__ == '__main__':
         epoch += 1
     print(f'Runtime: {current_time - start_time}')
     while True: 
-        data = input("Please enter a file path")
+        data = input("Please enter a file path\n")
         if data =='q':
             break
         
@@ -141,9 +141,15 @@ if __name__ == '__main__':
         if predicted_label == 1: 
             print('Killer Whale')
         if predicted_label == 2:
-            print('SpermWhale')
+            print('Sperm Whale')
         if predicted_label == 3:
             print('Bottle Nose Dolphin')
+        if predicted_label == 4:
+            print('Atlantic Spotted Dolphin')
+        if predicted_label == 5:
+            print('Spinner Dolphin')
+        if predicted_label == 6:
+            print('Bowhead Whale')
         print(f'Predicted Label: {predicted_label}')
 
 
